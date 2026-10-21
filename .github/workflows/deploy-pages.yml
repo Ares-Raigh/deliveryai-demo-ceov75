@@ -27,10 +27,12 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+        working-directory: apps/pm-task-board
       - run: npm run build
+        working-directory: apps/pm-task-board
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: apps/pm-task-board
       - id: deployment
         uses: actions/deploy-pages@v4
